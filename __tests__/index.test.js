@@ -7,7 +7,7 @@ import parseFile from '../src/modules/parseFile.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const getFixturePath = (filename) => path.resolve(__dirname, '..', '__fixtures__', filename);
+const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 
 test('genDiff, expect flat structure, format - "plain", read local file', () => {
   const expectFixturePath = getFixturePath('expectFlat.txt');
