@@ -7,5 +7,8 @@ lint:
 test:
 	npm test
 
-test-coverage:
-	npm test -- --coverage --coverageProvider=v8
+coverage:
+	npx jest --coverage 
+
+watch:
+	npx jest --watch

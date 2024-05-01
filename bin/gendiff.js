@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import parseFile from '../src/modules/parseFile.js';
+import parseFile from '../src/parsers/index.js';
 import readLocalFile from '../src/modules/readLocalFile.js';
 import genDiff from '../src/index.js';
 
