@@ -7,7 +7,7 @@ lint:
 test:
 	npm test
 
-coverage:
+test-coverage:
 	npx jest --coverage 
 
 watch:
