@@ -35,13 +35,10 @@ const mappingPlain = {
 
 const genPlainFormat = (dataOfDiff, path = []) => {
   const res = dataOfDiff.flatMap((node) => {
-    const currFormattedNode = [];
     if (node.type === 'nested') {
-      currFormattedNode.push(genPlainFormat(node.children, [...path, node.key]));
-    } else {
-      currFormattedNode.push(mappingPlain[node.type](node, [...path, node.key]));
+      return genPlainFormat(node.children, [...path, node.key]);
     }
-    return currFormattedNode.flat();
+    return mappingPlain[node.type](node, [...path, node.key]);
   });
   return res.join('\n');
 };
