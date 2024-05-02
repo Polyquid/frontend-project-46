@@ -43,7 +43,7 @@ const genPlainFormat = (dataOfDiff, path = []) => {
     }
     return currFormattedNode.flat();
   });
-  return res;
+  return res.join('\n');
 };
 
 export default genPlainFormat;

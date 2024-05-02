@@ -62,4 +62,7 @@ const genStylishFormat = (dataOfDiff, depth) => {
   return res;
 };
 
-export default genStylishFormat;
+export default (dataOfDiff, depth) => {
+  const res = genStylishFormat(dataOfDiff, depth);
+  return res.join('\n');
+};

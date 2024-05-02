@@ -60,3 +60,29 @@ test('genDiff\nformat - "plain"\n.yaml && .yml', () => {
   const rejectFile = genDiff(parsedFile1, parsedFile2, 'plain');
   expect(rejectFile).toEqual(expectFile);
 });
+
+test('genDiff\nformat - "json"\n.json', () => {
+  const expectFixturePath = getFixturePath('expectJSON.txt');
+  const expectFile = fs.readFileSync(expectFixturePath, 'utf8');
+  const filePath1 = getFixturePath('file1.yaml');
+  const filePath2 = getFixturePath('file2.yml');
+  const { file: file1, formatFile: formatFile1 } = readLocalFile(filePath1);
+  const { file: file2, formatFile: formatFile2 } = readLocalFile(filePath2);
+  const parsedFile1 = parseFile(file1, formatFile1);
+  const parsedFile2 = parseFile(file2, formatFile2);
+  const rejectFile = genDiff(parsedFile1, parsedFile2, 'json');
+  expect(rejectFile).toEqual(expectFile);
+});
+
+test('genDiff\nformat - "json"\n.yaml && .yml', () => {
+  const expectFixturePath = getFixturePath('expectJSON.txt');
+  const expectFile = fs.readFileSync(expectFixturePath, 'utf8');
+  const filePath1 = getFixturePath('file1.yaml');
+  const filePath2 = getFixturePath('file2.yml');
+  const { file: file1, formatFile: formatFile1 } = readLocalFile(filePath1);
+  const { file: file2, formatFile: formatFile2 } = readLocalFile(filePath2);
+  const parsedFile1 = parseFile(file1, formatFile1);
+  const parsedFile2 = parseFile(file2, formatFile2);
+  const rejectFile = genDiff(parsedFile1, parsedFile2, 'json');
+  expect(rejectFile).toEqual(expectFile);
+});

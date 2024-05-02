@@ -13,3 +13,7 @@
 [Сравнение JSON структур, формат plain](https://asciinema.org/a/XqVrFlQc31exauboEiG6p5Fse)
 
 [Сравнение YAML & YML структур, формат plain](https://asciinema.org/a/y8WWCOJzNbD2H6a5LKjjcfLOz)
+
+[Сравнение JSON структур, формат json](https://asciinema.org/a/o3yQPlPOUxVu7H1x61rZ4oG04)
+
+[Сравнение YAML & YML структур, формат json](https://asciinema.org/a/lu4va6BQ0ct9Kr6Odo4vsaLTr)
