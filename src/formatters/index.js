@@ -3,8 +3,8 @@ import genPlainFormat from './genPlainFormat.js';
 import genJSONFormat from './genJSONformat.js';
 
 const mappingFormat = {
-  stylish: (dataOfDiff) => genStylishFormat(dataOfDiff, 0),
-  plain: (dataOfDiff) => genPlainFormat(dataOfDiff, []),
+  stylish: (dataOfDiff) => genStylishFormat(dataOfDiff),
+  plain: (dataOfDiff) => genPlainFormat(dataOfDiff),
   json: (dataOfDiff) => genJSONFormat(dataOfDiff),
 };
 

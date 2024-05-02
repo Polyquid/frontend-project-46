@@ -33,14 +33,17 @@ const mappingPlain = {
   unchanged: () => [],
 };
 
-const genPlainFormat = (dataOfDiff, path = []) => {
-  const res = dataOfDiff.flatMap((node) => {
-    if (node.type === 'nested') {
-      return genPlainFormat(node.children, [...path, node.key]);
-    }
-    return mappingPlain[node.type](node, [...path, node.key]);
-  });
-  return res.join('\n');
+const genPlainFormat = (dataOfDiff) => {
+  const iter = (data, path = []) => {
+    const res = data.flatMap((node) => {
+      if (node.type === 'nested') {
+        return iter(node.children, [...path, node.key]);
+      }
+      return mappingPlain[node.type](node, [...path, node.key]);
+    });
+    return res.join('\n');
+  };
+  return iter(dataOfDiff, []);
 };
 
 export default genPlainFormat;

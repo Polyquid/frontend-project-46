@@ -31,7 +31,7 @@ const genNestedFormattedValue = (node, depth) => {
   return ['{', nestedFormattedValue.join('\n'), `${buildSpaces(depth - 1, 'nested')}}`].join('\n');
 };
 
-const genStylishFormat = (dataOfDiff, depth) => {
+const genStylishFormat = (dataOfDiff, depth = 0) => {
   const res = dataOfDiff.map((node) => {
     if (node.type === 'nested') {
       const { children } = node;
@@ -55,7 +55,7 @@ const genStylishFormat = (dataOfDiff, depth) => {
   return res;
 };
 
-export default (dataOfDiff, depth) => {
-  const res = genStylishFormat(dataOfDiff, depth);
+export default (dataOfDiff) => {
+  const res = genStylishFormat(dataOfDiff);
   return ['{', ...res, '}'].join('\n');
 };
