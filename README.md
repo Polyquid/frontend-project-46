@@ -6,6 +6,10 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/fa3082e7f968281e3fe7/test_coverage)](https://codeclimate.com/github/Polyquid/frontend-project-46/test_coverage)
 
 ## Демонстрация работы библиотеки
-[Сравнение плоских JSON файлов](https://asciinema.org/a/n2xzUfBqzZsr2CLX2IJAAKY3v)
+[Сравнение плоских JSON структур](https://asciinema.org/a/n2xzUfBqzZsr2CLX2IJAAKY3v)
 
-[Сравнение плоских YAML & YML файлов](https://asciinema.org/a/lmew3u2RI9tXGl2gHMQHFTmC9)
+[Сравнение плоских YAML & YML структур](https://asciinema.org/a/lmew3u2RI9tXGl2gHMQHFTmC9)
+
+[Сравнение вложенных JSON структур](https://asciinema.org/a/evE3Se7Kqe41ShhfFqjCtmxDr)
+
+[Сравнение вложенных YAML & YML структур](https://asciinema.org/a/cMqZH76PgOOwybTRF4BnuJhha)

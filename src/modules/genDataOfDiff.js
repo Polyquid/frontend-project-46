@@ -11,7 +11,10 @@ const genDataOfDiff = (file1, file2) => {
     const currValue2 = file2[key];
     const currNode = {};
     currNode.key = key;
-    if (!Object.hasOwn(file1, key)) {
+    if (_.isObjectLike(currValue1) && _.isObjectLike(currValue2)) {
+      currNode.children = genDataOfDiff(currValue1, currValue2);
+      currNode.type = 'nested';
+    } else if (!Object.hasOwn(file1, key)) {
       currNode.value = currValue2;
       currNode.type = 'added';
     } else if (!Object.hasOwn(file2, key)) {
