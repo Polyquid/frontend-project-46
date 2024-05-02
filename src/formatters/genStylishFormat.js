@@ -47,8 +47,10 @@ const genStylishFormat = (dataOfDiff, depth) => {
       const [space1, space2] = buildSpaces(depth + 1, node.type);
       const isNestedValue1 = _.isObjectLike(value1);
       const corrValue1 = isNestedValue1 ? genNestedFormattedValue(value1, depth + 2) : value1;
+      const isNestedValue2 = _.isObjectLike(value2);
+      const corrValue2 = isNestedValue2 ? genNestedFormattedValue(value2, depth + 2) : value2;
       currFormattedNode.push(`${space1}${node.key}: ${corrValue1}`);
-      currFormattedNode.push(`${space2}${node.key}: ${value2}`);
+      currFormattedNode.push(`${space2}${node.key}: ${corrValue2}`);
     } else {
       const isNestedValue = _.isObjectLike(node.value);
       const value = isNestedValue ? genNestedFormattedValue(node.value, depth + 2) : node.value;
