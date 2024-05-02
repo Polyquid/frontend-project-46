@@ -9,25 +9,39 @@ const genDataOfDiff = (file1, file2) => {
   const dataOfDiff = sortedMergedKeys.map((key) => {
     const currValue1 = file1[key];
     const currValue2 = file2[key];
-    const currNode = {};
-    currNode.key = key;
     if (_.isObjectLike(currValue1) && _.isObjectLike(currValue2)) {
-      currNode.children = genDataOfDiff(currValue1, currValue2);
-      currNode.type = 'nested';
-    } else if (!Object.hasOwn(file1, key)) {
-      currNode.value = currValue2;
-      currNode.type = 'added';
-    } else if (!Object.hasOwn(file2, key)) {
-      currNode.value = currValue1;
-      currNode.type = 'deleted';
-    } else if (currValue1 !== currValue2) {
-      currNode.values = [currValue1, currValue2];
-      currNode.type = 'changed';
-    } else {
-      currNode.value = currValue1;
-      currNode.type = 'unchanged';
+      return {
+        key,
+        type: 'nested',
+        children: genDataOfDiff(currValue1, currValue2),
+      };
     }
-    return currNode;
+    if (!Object.hasOwn(file1, key)) {
+      return {
+        key,
+        type: 'added',
+        value: currValue2,
+      };
+    }
+    if (!Object.hasOwn(file2, key)) {
+      return {
+        key,
+        type: 'deleted',
+        value: currValue1,
+      };
+    }
+    if (currValue1 !== currValue2) {
+      return {
+        key,
+        type: 'changed',
+        values: [currValue1, currValue2],
+      };
+    }
+    return {
+      key,
+      type: 'unchanged',
+      value: currValue1,
+    };
   });
   return dataOfDiff;
 };
