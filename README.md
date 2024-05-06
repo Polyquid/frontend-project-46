@@ -25,6 +25,10 @@
 
 `gendiff [options] <filepath1> <filepath2>`
 
+Аргументы:
+
+`<filepath1> <filepath2>` - относительные пути к сравниваемым файлам
+
 Параметры:
 
 `-v`, `--version` output the current version
